@@ -12,7 +12,9 @@ import java.nio.charset.Charset;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
-
+/**
+*在github修改文件同步到自己本地仓库
+*/
 public class ReadZip {
 	public static void main(String[] args) throws IOException {
 		String path = "C:\\TEMP\\";
