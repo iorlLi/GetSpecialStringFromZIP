@@ -49,14 +49,14 @@ public class ReadZip {
 	private static void readZip(String absolutepath) throws IOException, FileNotFoundException {
 		@SuppressWarnings("resource")
 		ZipFile zipfile = new ZipFile(absolutepath);
-		InputStream in = new BufferedInputStream(new FileInputStream(absolutepath));
+		InputStream inputstream = new BufferedInputStream(new FileInputStream(absolutepath));
 		Charset gbk = Charset.forName("gbk");
 		@SuppressWarnings("resource")
-		ZipInputStream zipinputstream = new ZipInputStream(in, gbk);
-		ZipEntry ze;
-		while ((ze = zipinputstream.getNextEntry()) != null) {
-			if (ze.toString().endsWith("log")) {
-				BufferedReader br = new BufferedReader(new InputStreamReader(zipfile.getInputStream(ze)));
+		ZipInputStream zipinputstream = new ZipInputStream(inputstream, gbk);
+		ZipEntry zipentry;
+		while ((zipentry = zipinputstream.getNextEntry()) != null) {
+			if (zipentry.toString().endsWith("log")) {
+				BufferedReader br = new BufferedReader(new InputStreamReader(zipfile.getInputStream(zipentry)));
 				String line;
 				while ((line = br.readLine()) != null) {
 
